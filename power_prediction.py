@@ -1,9 +1,16 @@
 import streamlit as st
 import pandas as pd
+import time
 import pickle
 
 scaler = pickle.load(open("scaler.pkl", "rb"))
 rf_model = pickle.load(open("rf-model.pkl", "rb"))
+
+def stream_response (predicted_power):
+    response_msg = f"The predicted global active power is {predicted_power} Watt."
+    for word in response_msg.split(" "):
+        yield word + " "
+        time.sleep(0.02)
 
 def main ():
     """
@@ -51,8 +58,8 @@ def main ():
         scaled_data = scaler.transform(data)
         predicted_power = rf_model.predict(scaled_data)
 
-        success_msg = f"The predicted global active power is {predicted_power} Watt."
-        st.write_stream(success_msg)
+        
+        st.write_stream(stream_response (predicted_power))
 
 if __name__ == '__main__':
     main()
