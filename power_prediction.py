@@ -14,15 +14,15 @@ def stream_response (predicted_power):
         Return:
             the sequence of each word in response_msg
     """
-    response_msg = f"The predicted global active power is {predicted_power} Watt."
-    for word in response_msg.split(" "):
-        yield word + " "
+    response_msg = "The predicted global active power is " + str(predicted_power) + " Watt.\n"
+    for letter in response_msg:
+        yield letter + " "
         time.sleep(0.1)
 
-    msg = "The model was trained with the Individual Household Electric Power Consumption" \
+    msg = "\nThe model was trained with the Individual Household Electric Power Consumption" \
     "from the UCI Machine Learning repository."
-    for word in msg:
-        yield word
+    for letter in msg:
+        yield letter
         time.sleep(0.02)
 
 def main ():
@@ -43,8 +43,13 @@ def main ():
         "It corresponds to the kitchen, containing mainly a dishwasher," \
         "an oven and a microwave (hot plates are not electric but gas powered)"
     )
-    sub_metering_2 = st.number_input("Sub metering 2: energy sub-metering No. 2 (in watt-hour of active energy). It corresponds to the laundry room, containing a washing-machine, a tumble-drier, a refrigerator and a light.")
-    sub_metering_3 = st.number_input("Sub metering 3: energy sub-metering No. 3 (in watt-hour of active energy). It corresponds to an electric water-heater and an air-conditioner.")
+    sub_metering_2 = st.number_input("Sub metering 2: energy sub-metering No. 2 "
+    "(in watt-hour of active energy). " \
+    "It corresponds to the laundry room, containing a washing-machine, " \
+    "a tumble-drier, a refrigerator and a light.")
+    sub_metering_3 = st.number_input("Sub metering 3: energy sub-metering No. 3 "
+    "(in watt-hour of active energy). " \
+    "It corresponds to an electric water-heater and an air-conditioner.")
 
     dico = [{
         "DateTime": date_time,
