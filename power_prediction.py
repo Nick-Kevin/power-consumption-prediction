@@ -7,10 +7,23 @@ scaler = pickle.load(open("scaler.pkl", "rb"))
 rf_model = pickle.load(open("rf-model.pkl", "rb"))
 
 def stream_response (predicted_power):
+    """
+        Callback function for the write_stream function that makes a live typing animation
+        Args:
+            predicted_power: (float) the predicted value by the model
+        Return:
+            the sequence of each word in response_msg
+    """
     response_msg = f"The predicted global active power is {predicted_power} Watt."
     for word in response_msg.split(" "):
         yield word + " "
-        time.sleep(0.02)
+        time.sleep(0.1)
+
+    msg = "The model was trained with the Individual Household Electric Power Consumption" \
+    "from the UCI Machine Learning repository."
+    for word in msg:
+        yield word + " "
+        time.sleep(0.1)
 
 def main ():
     """
