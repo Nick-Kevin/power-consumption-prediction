@@ -22,8 +22,8 @@ def stream_response (predicted_power):
     msg = "The model was trained with the Individual Household Electric Power Consumption" \
     "from the UCI Machine Learning repository."
     for word in msg:
-        yield word + " "
-        time.sleep(0.1)
+        yield word
+        time.sleep(0.02)
 
 def main ():
     """
