@@ -6,16 +6,25 @@ scaler = pickle.load(open("scaler.pkl", "rb"))
 rf_model = pickle.load(open("rf-model.pkl", "rb"))
 
 def main ():
-    st.title("Household power prediction")
-    st.write("Enter the required information to predict the Global active power")
+    """
+        The user interface on Streamlit
+    """
+
+    st.title("Household power consumption estimation")
+    st.write("Enter the required information to predict the electric power consumption.")
 
     date_time = st.datetime_input("Date and time")
-    reactive_power = st.number_input("Global reactive power")
-    voltage = st.number_input("Voltage", min_value=223, max_value=260)
-    intensity = st.number_input("Global intensity")
-    sub_metering_1 = st.number_input("Sub metering 1")
-    sub_metering_2 = st.number_input("Sub metering 2")
-    sub_metering_3 = st.number_input("Sub metering 3")
+    reactive_power = st.number_input("Household global reactive power (in kilowatt)")
+    voltage = st.number_input("Voltage (in volt)", min_value=223, max_value=260)
+    intensity = st.number_input("Global intensity (in ampere)")
+    sub_metering_1 = st.number_input(
+        "Sub metering 1: energy sub-metering No. 1"
+        "(in watt-hour of active energy)." \
+        "It corresponds to the kitchen, containing mainly a dishwasher," \
+        "an oven and a microwave (hot plates are not electric but gas powered)"
+    )
+    sub_metering_2 = st.number_input("Sub metering 2: energy sub-metering No. 2 (in watt-hour of active energy). It corresponds to the laundry room, containing a washing-machine, a tumble-drier, a refrigerator and a light.")
+    sub_metering_3 = st.number_input("Sub metering 3: energy sub-metering No. 3 (in watt-hour of active energy). It corresponds to an electric water-heater and an air-conditioner.")
 
     dico = [{
         "DateTime": date_time,
@@ -42,8 +51,8 @@ def main ():
         scaled_data = scaler.transform(data)
         predicted_power = rf_model.predict(scaled_data)
 
-        success_msg = "Predicted global active power = " + str(predicted_power) + " W"
-        st.success(success_msg)
+        success_msg = f"The predicted global active power is {predicted_power} Watt."
+        st.write_stream(success_msg)
 
 if __name__ == '__main__':
     main()
