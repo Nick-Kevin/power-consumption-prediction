@@ -1,5 +1,8 @@
 name: Keep the app awake
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   schedule:
