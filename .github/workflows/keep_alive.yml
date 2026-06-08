@@ -1,6 +1,7 @@
 name: Keep the app awake
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */10 * * *' # runs every 10 hours
 
