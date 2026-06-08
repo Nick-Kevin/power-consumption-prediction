@@ -31,6 +31,14 @@ def main ():
     """
 
     st.title("Household power consumption estimation")
+    st.markdown(
+        ":violet-badge[Artificial Intelligence] :orange-badge[Supervised Learning] :gray-badge[Regression] :blue-badge[Machine Learning]"
+    )
+    st.subheader("About")
+    st.write("The machine learning model that used to predict the electric power in this app" \
+    " was trained with the Individual Household Electric Power Consumption" \
+    " dataset from the UCI Machine Learning repository.")
+    st.divider()
     st.write("Enter the required information to predict the electric power consumption.")
 
     date_time = st.datetime_input("Date and time")
