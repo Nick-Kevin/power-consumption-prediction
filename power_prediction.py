@@ -14,7 +14,11 @@ def stream_response (predicted_power):
         Return:
             the sequence of each word in response_msg
     """
-    response_msg = "The predicted global active power is " + str(predicted_power) + " Watt.\n"
+
+    rounded_value = str(round(predicted_power, 2))
+
+    response_msg = "The predicted global active power is " + rounded_value + " Watt.\n"
+
     for letter in response_msg:
         yield letter
         time.sleep(0.02)
