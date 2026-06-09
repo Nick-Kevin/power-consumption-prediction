@@ -3,8 +3,8 @@ import pandas as pd
 import time
 import pickle
 
-scaler = pickle.load(open("scaler.pkl", "rb"))
-rf_model = pickle.load(open("rf-model.pkl", "rb"))
+scaler = pickle.load(open("components/scaler.pkl", "rb"))
+rf_model = pickle.load(open("components/rf-model.pkl", "rb"))
 
 def stream_response (predicted_power):
     """
@@ -42,9 +42,9 @@ def main ():
     st.write("Enter the required information to predict the electric power consumption.")
 
     date_time = st.datetime_input("Date and time")
-    reactive_power = st.number_input("Household global reactive power (in kilowatt)")
-    voltage = st.number_input("Voltage (in volt)", min_value=223, max_value=260)
-    intensity = st.number_input("Global intensity (in ampere)")
+    reactive_power = st.number_input("Household global reactive power (in kilowatt)", value=0.436)
+    voltage = st.number_input("Voltage (in volt)", value=233.63)
+    intensity = st.number_input("Global intensity (in ampere)", value=23)
     sub_metering_1 = st.number_input(
         "Sub metering 1: energy sub-metering No. 1"
         "(in watt-hour of active energy)." \
@@ -54,10 +54,10 @@ def main ():
     sub_metering_2 = st.number_input("Sub metering 2: energy sub-metering No. 2 "
     "(in watt-hour of active energy). " \
     "It corresponds to the laundry room, containing a washing-machine, " \
-    "a tumble-drier, a refrigerator and a light.")
+    "a tumble-drier, a refrigerator and a light.", value=1)
     sub_metering_3 = st.number_input("Sub metering 3: energy sub-metering No. 3 "
     "(in watt-hour of active energy). " \
-    "It corresponds to an electric water-heater and an air-conditioner.")
+    "It corresponds to an electric water-heater and an air-conditioner.", value=16)
 
     dico = [{
         "DateTime": date_time,
