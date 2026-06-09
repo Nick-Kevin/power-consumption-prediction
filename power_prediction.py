@@ -24,7 +24,7 @@ def main ():
         The user interface on Streamlit
     """
 
-    st.title("Household power consumption estimation")
+    st.title("🔋 Household power consumption estimation")
     st.markdown(
         ":violet-badge[Artificial Intelligence] :orange-badge[Supervised Learning] :gray-badge[Regression] :blue-badge[Machine Learning]"
     )
