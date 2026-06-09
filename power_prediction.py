@@ -32,17 +32,24 @@ def main ():
     st.markdown(
         ":violet-badge[Artificial Intelligence] :orange-badge[Supervised Learning] :gray-badge[Regression] :blue-badge[Machine Learning]"
     )
+
     st.subheader("About")
     st.write("The machine learning model that is used to predict the electric power in this app" \
     " was trained with the Individual Household Electric Power Consumption" \
     " dataset from the UCI Machine Learning repository.")
+
     st.divider()
+
     st.write("Enter the required information to predict the electric power consumption.")
 
     date_time = st.datetime_input("Date and time")
+
     reactive_power = st.number_input("Household global reactive power (in kilowatt)", value=0.436)
+
     voltage = st.number_input("Voltage (in volt)", value=233.63)
+
     intensity = st.number_input("Global intensity (in ampere)", value=23)
+
     st.write("Sub metering 1:")
     sub_metering_1 = st.number_input(
         "Energy sub-metering No. 1"
@@ -50,11 +57,15 @@ def main ():
         "It corresponds to the kitchen, containing mainly a dishwasher," \
         "an oven and a microwave (hot plates are not electric but gas powered)"
     )
-    sub_metering_2 = st.number_input("Sub metering 2: energy sub-metering No. 2 "
+
+    st.write("Sub metering 2:")
+    sub_metering_2 = st.number_input("Energy sub-metering No. 2 "
     "(in watt-hour of active energy). " \
     "It corresponds to the laundry room, containing a washing-machine, " \
     "a tumble-drier, a refrigerator and a light.", value=1)
-    sub_metering_3 = st.number_input("Sub metering 3: energy sub-metering No. 3 "
+
+    st.write("Sub metering 3:")
+    sub_metering_3 = st.number_input("Energy sub-metering No. 3 "
     "(in watt-hour of active energy). " \
     "It corresponds to an electric water-heater and an air-conditioner.", value=16)
 
