@@ -78,8 +78,9 @@ def main ():
         scaled_data = scaler.transform(data)
         predicted_power = rf_model.predict(scaled_data)
 
-        
-        st.write_stream(stream_response (predicted_power))
+        st.divider()
+        st.write_stream(stream_response (predicted_power), cursor="⚡")
+        st.divider()
 
 if __name__ == '__main__':
     main()
