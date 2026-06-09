@@ -17,7 +17,7 @@ def stream_response (predicted_power):
     response_msg = "The predicted global active power is " + str(predicted_power) + " Watt.\n"
     for letter in response_msg:
         yield letter
-        time.sleep(0.009)
+        time.sleep(0.02)
 
 def main ():
     """
