@@ -13,7 +13,7 @@ Several data preprocessing practices were applied before designing and developin
 
 #### Models' evalutation
 
-###### - Linear Regression and Ridge evaluation on the test set
+ - **Linear Regression and Ridge evaluation on the test set**
 
 ```
     Mean Squared Error (MSE) = 0.0016276345367416988
@@ -21,14 +21,14 @@ Several data preprocessing practices were applied before designing and developin
     Coefficient of determination = 0.9985476216083097
 ```
 
-##### - Elastic Net evaluation on the test set
+- **Elastic Net evaluation on the test set**
 
 ```
     Mean Squared Error (MSE) = 0.47365937658049345
     Mean Absolute Error (MAE) = 0.5360517948097412
     Coefficient of determination = 0.5773420703248616
 ```
-##### - Decision Tree evaluation on the test set
+- **Decision Tree evaluation on the test set**
 
 ```
     Mean Squared Error (MSE) = 0.0012052484970331043
@@ -36,7 +36,7 @@ Several data preprocessing practices were applied before designing and developin
     Coefficient of determination = 0.9989245270764454
 ```
 
-##### - Random Forest evaluation on the test set
+- **Random Forest evaluation on the test set**
 
 ```
     Mean Squared Error (MSE) = 0.0010795055934000426
