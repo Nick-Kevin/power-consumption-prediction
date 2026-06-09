@@ -15,7 +15,7 @@ def stream_response (predicted_power):
             the sequence of each word in response_msg
     """
 
-    rounded_value = round(predicted_power, 2)
+    rounded_value = round(predicted_power[0], 2) # predicted_power[0] because the predicted value is a numpy array
 
     response_msg = "The predicted global active power is " + str(rounded_value) + " Watt.\n"
 
