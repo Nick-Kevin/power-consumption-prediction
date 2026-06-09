@@ -43,8 +43,9 @@ def main ():
     reactive_power = st.number_input("Household global reactive power (in kilowatt)", value=0.436)
     voltage = st.number_input("Voltage (in volt)", value=233.63)
     intensity = st.number_input("Global intensity (in ampere)", value=23)
+    st.texte("Sub metering 1:")
     sub_metering_1 = st.number_input(
-        "Sub metering 1:\nEnergy sub-metering No. 1"
+        "Energy sub-metering No. 1"
         "(in watt-hour of active energy)." \
         "It corresponds to the kitchen, containing mainly a dishwasher," \
         "an oven and a microwave (hot plates are not electric but gas powered)"
