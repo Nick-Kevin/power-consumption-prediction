@@ -17,13 +17,7 @@ def stream_response (predicted_power):
     response_msg = "The predicted global active power is " + str(predicted_power) + " Watt.\n"
     for letter in response_msg:
         yield letter
-        time.sleep(0.02)
-
-    msg = "\nThe model was trained with the Individual Household Electric Power Consumption" \
-    "from the UCI Machine Learning repository."
-    for letter in msg:
-        yield letter
-        time.sleep(0.02)
+        time.sleep(0.009)
 
 def main ():
     """
